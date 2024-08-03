@@ -1,6 +1,8 @@
 package utilities;
 
 
+import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -25,6 +27,10 @@ public class DriverManager {
 	                    break;
 	            }
 	        }
+	     // Set page load timeout and maximize window
+	        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
+	        driver.manage().window().maximize();
+	        
 	        return driver;
 	    }
 	
