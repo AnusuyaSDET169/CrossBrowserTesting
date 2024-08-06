@@ -14,7 +14,7 @@ features = { "src/test/resources/features" }, glue = { "stepDefinition", "hooks"
 public class testRunner extends AbstractTestNGCucumberTests {
 
 @Override
-@DataProvider(parallel = false)
+@DataProvider(parallel = true)
 public Object[][] scenarios() {
 return super.scenarios();
 }

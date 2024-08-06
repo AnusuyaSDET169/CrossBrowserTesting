@@ -1,23 +1,59 @@
 package stepDefinition;
 
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.When;
-import io.cucumber.java.en.Then;
-
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import pageObjects.HomePage;
 import pageObjects.LoginPage;
+import pageObjects.QueuePage;
 import pageObjects.StackPage;
 import utilities.ConfigReader;
 import utilities.DriverManager;
 
-
-
 public class DataStructureStackSteps {
-	WebDriver driver;
+	
+	QueuePage queuePage;
+    HomePage homePage;
+    WebDriver driver;
+    ConfigReader configReader = new ConfigReader();
+    LoginPage loginPage;	  
+    StackPage stackPage;
+    WebDriverWait wait;
+		    
+   public DataStructureStackSteps() {
+	   
+     driver = DriverManager.getDriver(configReader.getProperty("browser"));
+      homePage = new HomePage(driver);
+	  stackPage =new StackPage(driver);
+   }
+	@When("User scrolls to Implementation of Stack")
+	public void user_scrolls_to_implementation_of_stack() {
+        homePage.selectDataStructures();
+        homePage.selectStack();
+		
+	}
+	@When("User clicks on Implementation of Stack")
+	public void user_clicks_on_implementation_of_stack() {	
+		stackPage.verifyStackPage();
+       // WebElement element = driver.findElement(By.linkText("Implementation"));
+       // ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+        //element.click();
+	}
+	@Then("User is navigated to the Implementation of Stack page")
+	public void user_is_navigated_to_the_implementation_of_stack_page() {
+	  System.out.println("stackpage");
+	}
+	
+	
+}
+	
+	/*WebDriver driver;
     ConfigReader configReader = new ConfigReader();
     LoginPage loginPage;
     HomePage homePage;
@@ -82,4 +118,5 @@ public class DataStructureStackSteps {
 
     }
 
-}
+
+}*/

@@ -3,7 +3,7 @@
 <suite name="Suite" parallel="tests" thread-count="2">
 
   
-       <test name="Cucumber Tests">
+       <test name="cucumber tests">
         <classes>
             <class name="runners.testRunner"></class>
         </classes>
@@ -11,5 +11,4 @@
 
     
   
-
 </suite>

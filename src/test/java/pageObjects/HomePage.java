@@ -8,7 +8,9 @@ public class HomePage {
 
 	    By dataStructuresLink = By.linkText("Data Structures");
 	    By stackLink = By.linkText("Stack");
+	    By queueLink = By.linkText("Queue");
 	    By logoutButton = By.xpath("//a[text()='Sign out']");
+
 
 	    public HomePage(WebDriver driver) {
 	        this.driver = driver;
@@ -24,5 +26,9 @@ public class HomePage {
 
 	    public void clickLogoutButton() {
 	        driver.findElement(logoutButton).click();
+	    }
+	    
+	    public void selectQueue() {
+	        driver.findElement(queueLink).click();
 	    }
 }

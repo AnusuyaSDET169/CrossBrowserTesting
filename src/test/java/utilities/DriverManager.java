@@ -11,9 +11,13 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class DriverManager {
 
 	
+	
+	
 		private static WebDriver driver;
 
 	    public static  WebDriver getDriver(String browser) {
+	    	
+	       // String browser = ConfigReader.getProperty("browser");
 	        if (driver == null) {
 	            switch (browser.toLowerCase()) {
 	                case "firefox":
@@ -40,5 +44,7 @@ public class DriverManager {
 	            driver = null;
 	        }
 	    }
+
+		
 	}
 	

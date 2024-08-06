@@ -2,13 +2,18 @@
 
 Feature: Data Structure Stack
 
-  Scenario: Login, select stack and logout
-    Given I open the login page
-    When I enter valid credentials
-    And I click on login button
-    Then I should be logged in successfully
-    When I select Data Structures and Algorithms
-    And I select Stack from the list
-    Then I should see the stack page
-    When I log out
-    Then I should be logged out successfully
+ Background: User is logged in
+    Given User is on Login Page
+    When User enters username as "validUser" and password as "validPassword"
+    And User clicks on Login button
+    Then User is navigated to the home page 
+
+  Scenario: Navigate to Implementation of Stack
+    When User scrolls to Implementation of Stack
+    And User clicks on Implementation of Stack
+    Then User is navigated to the Implementation of Stack page  
+    
+  
+  
+  
+  
