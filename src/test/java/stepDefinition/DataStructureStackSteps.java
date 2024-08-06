@@ -28,7 +28,7 @@ public class DataStructureStackSteps {
 		    
    public DataStructureStackSteps() {
 	   
-     driver = DriverManager.getDriver(configReader.getProperty("browser"));
+     driver = DriverManager.getDriver();
       homePage = new HomePage(driver);
 	  stackPage =new StackPage(driver);
    }

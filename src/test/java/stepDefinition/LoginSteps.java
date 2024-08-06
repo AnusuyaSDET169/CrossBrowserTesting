@@ -24,12 +24,14 @@ public class LoginSteps {
 //    }
     ConfigReader configReader = new ConfigReader();
 
-    WebDriver driver = DriverManager.getDriver(configReader.getProperty("browser"));
+    WebDriver driver = DriverManager.getDriver();
     LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
        
 	    @Given("User is on Login Page")
 	    public void user_is_on_login_page() {
 	        driver.get(configReader.getProperty("baseUrl") + "/login");
+	        //driver.get(configReader.getProperty());
+
 	    }
 
 	    @When("^User enters username as \"([^\"]*)\" and password as \"([^\"]*)\"$")
@@ -45,8 +47,9 @@ public class LoginSteps {
 
 	    @Then("User is navigated to the home page")
 	    public void user_is_navigated_to_home_page() {
-	        driver.get(configReader.getProperty("baseUrl") + "/home");
-	        
+	     driver.get(configReader.getProperty("baseUrl") + "/home");
+	       // driver.get(configReader.getProperty1());
+ 
 	      
 	    }
 	}

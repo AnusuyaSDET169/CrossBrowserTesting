@@ -3,12 +3,17 @@
 <suite name="Suite" parallel="tests" thread-count="2">
 
   
-       <test name="cucumber tests">
+       <test name="Chrome tests">
+		 <parameter name="browser" value="chrome"/>
         <classes>
             <class name="runners.testRunner"></class>
         </classes>
     </test>
 
-    
-  
+    <test name="Firefox Test">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="runners.testRunner"/>
+        </classes>
+    </test>
 </suite>

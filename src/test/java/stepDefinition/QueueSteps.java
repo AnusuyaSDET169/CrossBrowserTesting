@@ -29,7 +29,10 @@ public class QueueSteps {
     WebDriverWait wait;
 
     public QueueSteps() {
-        driver = DriverManager.getDriver(configReader.getProperty("browser"));
+      
+    	driver = DriverManager.getDriver();
+
+    	//driver = DriverManager.getDriver(configReader.getProperty("browser"));
         homePage = new HomePage(driver);
         queuePage =new QueuePage(driver);
     }
