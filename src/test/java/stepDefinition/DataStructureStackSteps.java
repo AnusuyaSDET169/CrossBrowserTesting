@@ -41,13 +41,10 @@ public class DataStructureStackSteps {
 	@When("User clicks on Implementation of Stack")
 	public void user_clicks_on_implementation_of_stack() {	
 		stackPage.verifyStackPage();
-       // WebElement element = driver.findElement(By.linkText("Implementation"));
-       // ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
-        //element.click();
+      
 	}
 	@Then("User is navigated to the Implementation of Stack page")
 	public void user_is_navigated_to_the_implementation_of_stack_page() {
-	  System.out.println("stackpage");
 	}
 	
 	

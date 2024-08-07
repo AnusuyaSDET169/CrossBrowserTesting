@@ -12,7 +12,7 @@ public class QueuePage {
 
 	WebDriver driver;
 
-    By queueTitle = By.xpath("//h5[text()='Queue']");
+    By queueTitle = By.xpath("//h4[text()='Queue']");
     By ImplementationofQueue  = By.linkText("Implementation of Queue in Python");
 
     public QueuePage(WebDriver driver) {
@@ -22,6 +22,10 @@ public class QueuePage {
     public void verifyQueuePage() {
 
     	Assert.assertTrue(driver.findElement(queueTitle).isDisplayed());
+    	System.out.println(driver.getTitle());
+    	WebElement element = driver.findElement(ImplementationofQueue);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+         element.click();
         //driver.findElement(ImplementationofQueue).click();    	
 
 }

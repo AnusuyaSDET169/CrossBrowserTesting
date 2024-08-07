@@ -47,14 +47,11 @@ public class QueueSteps {
     @When("User clicks on Implementation of Queue")
     public void user_clicks_on_implementation_of_queue() {
     	queuePage.verifyQueuePage(); 
-//		WebElement element = driver.findElement(ImplementationofQueue);
-//     ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
-//       element.click();
+		
     }
     @Then("User is navigated to the Implementation of Queue page")
     public void user_is_navigated_to_the_implementation_of_queue_page() {
     	
-    	System.out.println("Queuepage");
     }
 
     
