@@ -9,12 +9,12 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(plugin = { "pretty", "html:target/cucumber-reports/project.html" },
 
-features = { "src/test/resources/features" }, glue = { "stepDefinition", "hooks" })
+features = { "src/test/resources/features/datastructurestack.feature" }, glue = { "stepDefinition", "hooks" })
 
 public class testRunner extends AbstractTestNGCucumberTests {
 
 @Override
-@DataProvider(parallel = true)
+@DataProvider(parallel = false)
 public Object[][] scenarios() {
 return super.scenarios();
 }

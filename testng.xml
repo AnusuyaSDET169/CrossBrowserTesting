@@ -9,11 +9,11 @@
             <class name="runners.testRunner"></class>
         </classes>
     </test>
-
-    <test name="Firefox Test">
+<test name="Firefox Test">
         <parameter name="browser" value="firefox"/>
         <classes>
             <class name="runners.testRunner"/>
         </classes>
     </test>
+    
 </suite>

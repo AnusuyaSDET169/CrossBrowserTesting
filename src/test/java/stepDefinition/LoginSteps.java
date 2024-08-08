@@ -63,8 +63,7 @@ public class LoginSteps {
 	    	for (String[] row : excelData) {
 	    		currentUsername = row[0];
 	            currentPassword = row[1];
-
-	    	    
+                   	    
 	            // Perform the login using currentUsername and currentPassword
 	            // Example: loginPage.login(currentUsername, currentPassword);
 	        }

@@ -1,5 +1,7 @@
 package stepDefinition;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -15,9 +17,11 @@ import pageObjects.QueuePage;
 import pageObjects.StackPage;
 import utilities.ConfigReader;
 import utilities.DriverManager;
+import utilities.ExcelReader;
 
 public class DataStructureStackSteps {
-	
+    private List<String[]> excelData;
+    private String tryeditor;
 	QueuePage queuePage;
     HomePage homePage;
     WebDriver driver;
@@ -31,6 +35,8 @@ public class DataStructureStackSteps {
      driver = DriverManager.getDriver();
       homePage = new HomePage(driver);
 	  stackPage =new StackPage(driver);
+	  loginPage=new LoginPage(driver);
+
    }
 	@When("User scrolls to Implementation of Stack")
 	public void user_scrolls_to_implementation_of_stack() {
@@ -41,14 +47,30 @@ public class DataStructureStackSteps {
 	@When("User clicks on Implementation of Stack")
 	public void user_clicks_on_implementation_of_stack() {	
 		stackPage.verifyStackPage();
-      
+		
+
 	}
 	@Then("User is navigated to the Implementation of Stack page")
 	public void user_is_navigated_to_the_implementation_of_stack_page() {
+		stackPage.tryhere("print\"hello\"");
+//		for (String[] row : excelData) {
+//    		tryeditor = row[0];
+//    
+//        }
+		//stackPage.tryhere(tryeditor);
+
+	    String Executed=driver.findElement(By.xpath("//pre[@id='output']")).getText();
+	    System.out.println(Executed);
+		
+    }
+    
+		
+		
+		
 	}
 	
 	
-}
+
 	
 	/*WebDriver driver;
     ConfigReader configReader = new ConfigReader();
