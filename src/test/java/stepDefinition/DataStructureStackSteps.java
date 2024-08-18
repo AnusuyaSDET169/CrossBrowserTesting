@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import hooks.hooks;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -37,11 +38,16 @@ public class DataStructureStackSteps {
 	  stackPage =new StackPage(driver);
 	  loginPage=new LoginPage(driver);
 
+	  
+	  
+	  //this.driver = hooks.getDriver();
    }
+   
 	@When("User scrolls to Implementation of Stack")
 	public void user_scrolls_to_implementation_of_stack() {
-        homePage.selectDataStructures();
+		homePage.selectDataStructures();
         homePage.selectStack();
+
 		
 	}
 	@When("User clicks on Implementation of Stack")

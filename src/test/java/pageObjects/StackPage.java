@@ -26,7 +26,7 @@ public class StackPage {
 
     	Assert.assertTrue(driver.findElement(stackTitle).isDisplayed());
     	System.out.println(driver.getTitle());
-    	  WebElement element = driver.findElement(By.linkText("Implementation"));
+    	  WebElement element = driver.findElement(Implementationofstack);
          ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
          element.click();
     }

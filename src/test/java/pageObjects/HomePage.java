@@ -9,6 +9,9 @@ public class HomePage {
 	    By dataStructuresLink = By.linkText("Data Structures");
 	    By stackLink = By.linkText("Stack");
 	    By queueLink = By.linkText("Queue");
+	    By arraylink = By.xpath("//a[@href='array']"); 
+	    
+
 	    By logoutButton = By.xpath("//a[text()='Sign out']");
 
 
@@ -30,5 +33,11 @@ public class HomePage {
 	    
 	    public void selectQueue() {
 	        driver.findElement(queueLink).click();
+	    
 	    }
+	    public void selectArray() {
+	        driver.findElement(arraylink).click();
+	    
+	    }
+	    
 }
