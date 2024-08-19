@@ -26,11 +26,16 @@ public class ArrayPage {
 	By practiceQues = By.linkText("Practice Questions");
 	
 	By searchArray = By.linkText("Search the array");
+	By maxConsecutive = By.xpath("//a[normalize-space()='Max Consecutive Ones']");
+	By findNumbers=By.xpath("//a[normalize-space()='Find Numbers with Even Number of Digits']");
+	By squaresOf=By.xpath("//a[contains(text(),'Squares of')]");
+
 
 	By tryhere = By.xpath("//a[@class='btn btn-info']");
 	By RunButton = By.xpath("//button[@type='button']");
 	By output = By.xpath("//pre[@id='output']");
-
+	By submit = By.xpath("//input[@type='submit']");
+	
 	public ArrayPage(WebDriver driver) {
 		this.driver = driver;
 		this.wait = new WebDriverWait(driver, Duration.ofSeconds(5));
@@ -50,23 +55,53 @@ public class ArrayPage {
 		element.click();
 	}
 	
-	public void clearTryeditor()  {
+public void selectmaxConsecutive(){
 		
-		//WebDriverWait wait = new WebDriverWait(driver, 10);
-
-		WebElement element=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='CodeMirror-scroll']")));
-		//WebElement element=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[normalize-space()='input_list']")));
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);",element);
-        element.clear();
+		WebElement element = driver.findElement(maxConsecutive);
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+		element.click();
 	}
-	public void executePythonCode(String code) {
-      
-		// Implement the method to execute the Python code
+public void selectfindNumbers(){
+	
+	WebElement element = driver.findElement(findNumbers);
+	((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+	element.click();
+}
+
+public void selectsquaresOf(){
+	
+	WebElement element = driver.findElement(squaresOf);
+	((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+	element.click();
+}
+	public void clearTryeditorAndExecuteCode(String code)  {
+	    
+   	 WebElement codeMirrorElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='CodeMirror-scroll']")));
+
+        // JavaScript to clear the CodeMirror editor
+        String clearScript = "var editor = document.querySelector('.CodeMirror').CodeMirror;" +
+                             "editor.setValue('');";  // Sets the value to an empty string, effectively clearing it
+
+        // Execute the script to clear the editor
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript(clearScript);
+
+        // Python code to enter into the CodeMirror editor 
         System.out.println("Executing: " + code);
-        
-        
-        // Example: Use a scripting engine or other methods to execute Python code
+        // JavaScript to set the code in the CodeMirror editor
+        String enterCodeScript = "var editor = document.querySelector('.CodeMirror').CodeMirror;" +
+                                 "editor.setValue(arguments[0]);";
+
+        // Execute the script to enter the code
+        js.executeScript(enterCodeScript, code);
+		
+		
+	}
+	public void submit() {
+         
+		WebElement element = driver.findElement(submit);
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+		element.click();
     }
 
 	public void verifyArraysInPythonPage() {
